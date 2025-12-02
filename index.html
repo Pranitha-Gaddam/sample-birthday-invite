@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited! [Name]'s [age]nd Birthday</title>
+    
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Dancing Script (for headings) and Inter (for body) --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Apply custom fonts */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        /* Shimmering text effect for age */
+        .shimmer-text {
+            /* Create a gradient background */
+            background: linear-gradient(90deg, #ec4899, #f472b6, #fbbf24, #ec4899);
+            /* Set background size to be wider than the text */
+            background-size: 200% 100%;
+            /* Clip the background to the text */
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            /* Make the text color transparent */
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+            /* Animate the background position */
+            animation: shimmer 5s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* Simple fade-in animation for elements */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Apply animation with staggered delays */
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <!-- Invitation Card --><main class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-2xl w-full text-center overflow-hidden">
+        
+        <!-- Header Section --><div class="animate-fade-in" style="animation-delay: 0.1s;">
+            <h2 class="text-3xl text-gray-500 font-light">
+                You're invited to celebrate
+            </h2>
+            <h1 class="font-script text-7xl md:text-8xl my-2 text-gray-800">
+                Varsha's <span class="shimmer-text">22nd</span>
+            </h1>
+            <h3 class="text-3xl text-gray-500 font-light">
+                Birthday Party!
+            </h3>
+        </div>
+        
+        <!-- Details Section --><div class="my-10 border-y-2 border-dashed border-pink-200 py-8 animate-fade-in" style="animation-delay: 0.3s;">
+            <div class="space-y-6">
+                <!-- When --><div>
+                    <h4 class="text-xl font-bold tracking-wide uppercase text-rose-600">When</h4>
+                    <p class="text-lg md:text-xl text-gray-700 mt-1">Sunday, January 1st</p>
+                    <p class="text-lg md:text-xl text-gray-700">6:30 PM</p>
+                </div>
+                
+                <!-- Where --><div>
+                    <h4 class="text-xl font-bold tracking-wide uppercase text-rose-600">Where</h4>
+                    <p class="text-lg md:text-xl text-gray-700 mt-1">[Address Line 1]</p>
+                    <p class="text-lg md:text-xl text-gray-700 mt-1">[Address Line 2]</p>
+<!-- ---------------------------------------------- REPLACE 'YOUR_LOCATION_LINK_HERE' WITH YOUR LOCATION LINK BELOW FOR MAP DIRECTIONS -------------------------------------------  -->
+                    <a href="YOUR_LOCATION_LINK_HERE"
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-pink-500 hover:text-pink-700 transition duration-300 text-lg inline-block mt-2">
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RSVP Form Section --><div class="animate-fade-in" style="animation-delay: 0.5s;">
+            <h2 class="font-script text-6xl text-pink-600 mb-6">
+                RSVP
+            </h2>
+            <p class="text-gray-600 mb-8 text-lg">
+                Please let me know if you can make it by Dec 28th!
+            </p>
+            
+            <!-- 
+              FORM SETUP INSTRUCTIONS:
+              This form uses Formspree to email you the responses. It's free!
+              1. Go to https://formspree.io/ and create a new form.
+              2. They will give you a unique URL (e.g., "https://formspree.io/f/xxxxxxxx").
+              3. Replace "YOUR_UNIQUE_ID_HERE" in the 'action' attribute below with your unique URL.
+              That's it! Guests can now RSVP, and you'll get an email for each submission.
+            -->
+            <form action="YOUR_UNIQUE_ID_HERE" method="POST" class="text-left space-y-6">
+                
+                <!-- Guest Name --><div>
+                    <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" required
+                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent transition">
+                </div>
+                
+                <!-- Attending? --><fieldset>
+                    <legend class="block text-sm font-bold text-gray-700 mb-3">Will you be attending?</legend>
+                    <div class="flex items-center space-x-6">
+                        <div class="flex items-center">
+                            <input type="radio" id="attending-yes" name="rsvp" value="Yes, I'll be there!" required
+                                   class="h-5 w-5 text-pink-500 focus:ring-pink-400 border-gray-300">
+                            <label for="attending-yes" class="ml-2 block text-lg text-gray-800">Yes, I'll be there!</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="attending-no" name="rsvp" value="No, can't make it"
+                                   class="h-5 w-5 text-gray-500 focus:ring-gray-400 border-gray-300">
+                            <label for="attending-no" class="ml-2 block text-lg text-gray-800">No, can't make it</label>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!-- Dietary Restrictions --><div>
+                    <label for="dietary" class="block text-sm font-bold text-gray-700 mb-2">Any dietary restrictions?</label>
+                    <textarea id="dietary" name="dietary_restrictions" rows="3"
+                              placeholder="e.g., vegetarian, gluten-free, nut allergy..."
+                              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent transition"></textarea>
+                </div>
+                
+                <!-- Parking --><fieldset>
+                    <legend class="block text-sm font-bold text-gray-700 mb-3">Do you require parking?</legend>
+                    <div class="flex items-center space-x-6">
+                        <div class="flex items-center">
+                            <input type="radio" id="parking-yes" name="parking" value="Yes, I need parking" required
+                                   class="h-5 w-5 text-pink-500 focus:ring-pink-400 border-gray-300">
+                            <label for="parking-yes" class="ml-2 block text-lg text-gray-800">Yes</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="parking-no" name="parking" value="No, I'm good"
+                                   class="h-5 w-5 text-gray-500 focus:ring-gray-400 border-gray-300">
+                            <label for="parking-no" class="ml-2 block text-lg text-gray-800">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!-- Submit Button --><div class="text-center pt-4">
+                    <button type="submit"
+                            class="w-full md:w-auto px-12 py-4 bg-pink-500 text-white font-bold text-lg rounded-lg shadow-lg hover:bg-pink-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2">
+                        Send RSVP
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+        
+        <!-- Footer --><p class="mt-12 text-gray-400 text-base animate-fade-in" style="animation-delay: 0.7s;">
+            Can't wait to see you there! ᡣ𐭩
+        </p>
+        
+    </main>
+    
+</body>
+</html>
